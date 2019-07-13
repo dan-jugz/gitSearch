@@ -1,1 +1,16 @@
-<p>profile works!</p>
+<div class="topnav">
+    <a href="#Home" class="active">Home</a>
+    <a href="https://github.com/dan-jugz?tab=repositories"></a>
+</div>
+
+<form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group">
+                <input type="text" name="searchUser" [(ngModel)]="searchUsers" placeholder="Search" id="search">
+                <button type="submit" (click)="githubSearch()" class="btn btn-sm btn-info">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+
