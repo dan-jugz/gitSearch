@@ -10,5 +10,6 @@ searchUser:string;
  githubUser:any;
 // apiUrl = environment.apiUrl;
 // access_token= environment.access_token;
-  constructor(private http:HttpClien) { }
+
+  constructor(private http:HttpClient) { }
 }

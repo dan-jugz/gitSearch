@@ -12,6 +12,16 @@ export class ProfileComponent implements OnInit {
 
   constructor(private searchService:SearchService) { }
 
+  users:any;
+  searchUsers:any;
+  
+  githubSearch(){
+    this.searchService.githubUser(this.searchUsers).subscibe(data=>{
+      this.users = data;
+
+    })
+  }
+
   ngOnInit() {
   }
 
