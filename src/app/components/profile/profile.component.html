@@ -14,3 +14,21 @@
     </div>
 </form>
 
+<div *ngIf="users">
+    <img src="{{users.avatar_url}}" alt="user image">
+    <h5>
+        Username;
+        {{users.login}}
+    </h5>
+    <strong>
+        <p>
+            Bio;
+            {{users.bio}}
+        </p>
+    </strong>
+    <h6>
+        Repositories;
+        {{users.public_repos}}
+    </h6>
+
+</div>

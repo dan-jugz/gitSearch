@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SearchService } from './services/search.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
