@@ -3,32 +3,40 @@
     <a href="https://github.com/dan-jugz?tab=repositories"></a>
 </div>
 
-<form>
+
     <div class="container-fluid">
         <div class="row">
+        <form>
             <div class="form-group">
                 <input type="text" name="searchUser" [(ngModel)]="searchUsers" placeholder="Search" id="search">
-                <button type="submit" (click)="githubSearch()" class="btn btn-sm btn-info">Search</button>
+                <button type="submit" (click)="githubSearch()" class="btn btn-sm btn-info">Search user</button>
             </div>
+        </form>
         </div>
     </div>
-</form>
 
-<div *ngIf="users">
-    <img src="{{users.avatar_url}}" alt="user image">
+
+<div *ngIf="_user">
+    <img src="{{_user.avatar_url}}" alt="user image">
     <h5>
         Username;
-        {{users.login}}
+        {{_user.name}}
     </h5>
-    <strong>
-        <p>
-            Bio;
-            {{users.bio}}
-        </p>
-    </strong>
+    
     <h6>
         Repositories;
-        {{users.public_repos}}
+        {{_user.public_repos}}
     </h6>
-
+<strong>
+    <h5>
+        Followers:{{_user.followers}}
+        Following:{{_user.following}}
+    </h5>
+</strong>
+<strong>
+        <p>
+           View users online repositories
+            {{_user.repos_url}}
+        </p>
+</strong>
 </div>

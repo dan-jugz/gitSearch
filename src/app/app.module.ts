@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SearchService } from './services/search.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

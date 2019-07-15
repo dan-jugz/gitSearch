@@ -1,20 +1,56 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http'
+import { environment } from 'src/environments/environment'
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/user';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
- searchUser:string;
- githubUser:any;
- apiUrl = environment.apiUrl;
-// access_token= environment.access_token;
+user:User;
+url:string=`https://api.github.com/users/dan-jugz?access_token=${environment.access_token}`;
+api
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+  this.user=new User("","","",0,0,0,0) 
+  }
 
+  // let promise =  new promise ((resolve,reject)=>{this.httpClient.get<response>("https://api.github.com/users/yourname"${querySite}?+ this.username +"/repos"+environment.apiKey).toPromise(then(response=>{this.reponame.repos=response}
+  //   console.log(Response)))})
 
-githubSearch(searchUser){
-  let searchUrl=this.apiUrl+this.searchUser+'?access_token='+this.access_token
-  this.searchUser = searchUser;}
+githubSearch(){
+  
+  interface ApiResponse{
+    name:string;
+    avatar_url:string;
+    repos_url:string;
+    public_repos:number;
+    gists: number;
+    followers:number;
+    following: number;
+  } 
+  let promise =new Promise((resolve,reject)=>{
+    this.http.get<ApiResponse>(this.url).toPromise().then(response=>{
+        
+        this.user.name=response.name;
+        this.user.avatar_url=response.avatar_url;
+        this.user.repos_url=response.repos_url;
+        this.user.public_repos=response.public_repos;
+        this.user.gists=response.gists;
+        this.user.followers=response.followers;
+        this.user.following=response.following;
+
+        resolve()
+    },
+    error=>{
+           
+            reject(error)
+        }
+    )
+})
+
+return promise
+}
 }

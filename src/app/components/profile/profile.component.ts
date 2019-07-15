@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
-
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-profile',
@@ -12,17 +12,13 @@ export class ProfileComponent implements OnInit {
 
   constructor(private searchService:SearchService) { }
 
-  users:any;
-  searchUsers:any;
-  
-  githubSearch(){
-    this.searchService.githubUser(this.searchUsers).subscibe(data=>{
-      this.users = data;
+  _user:User;
 
-    })
-  }
+
 
   ngOnInit() {
+    this.searchService.githubSearch()
+    this._user=this.searchService.user;
   }
 
 }
