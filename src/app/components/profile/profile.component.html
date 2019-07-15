@@ -6,10 +6,12 @@
 
     <div class="container-fluid">
         <div class="row">
-        <form>
+        <form #search="ngForm" (ngSubmit)="submitSearch(search)">
+           
             <div class="form-group">
-                <input type="text" name="searchUser" [(ngModel)]="searchUsers" placeholder="Search" id="search">
-                <button type="submit" (click)="githubSearch()" class="btn btn-sm btn-info">Search user</button>
+                <label for="github"></label>
+                <input type="text" name="searchUser" [(ngModel)]="searchUsers" #githubUser [(ngModel)]="github" placeholder="Search" id="search">
+                <button type="submit" class="btn btn-sm btn-info">Search user</button>
             </div>
         </form>
         </div>
@@ -34,9 +36,9 @@
     </h5>
 </strong>
 <strong>
-        <p>
-           View users online repositories
-            {{_user.repos_url}}
-        </p>
+        <h4>
+           View users online <a href="{{_user.repos_url}}">repositories
+            </a>
+        </h4>
 </strong>
 </div>

@@ -17,8 +17,12 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.searchService.githubSearch()
+  }
+  
+  submitSearch(search){
+    this.searchService.githubSearch(search.value);
     this._user=this.searchService.user;
+console.log(search.value);
   }
 
 }

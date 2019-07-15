@@ -10,8 +10,6 @@ import { User } from 'src/app/user';
 })
 export class SearchService {
 user:User;
-url:string=`https://api.github.com/users/dan-jugz?access_token=${environment.access_token}`;
-api
 
   constructor(private http:HttpClient) { 
   this.user=new User("","","",0,0,0,0) 
@@ -20,7 +18,7 @@ api
   // let promise =  new promise ((resolve,reject)=>{this.httpClient.get<response>("https://api.github.com/users/yourname"${querySite}?+ this.username +"/repos"+environment.apiKey).toPromise(then(response=>{this.reponame.repos=response}
   //   console.log(Response)))})
 
-githubSearch(){
+githubSearch(searchValue){
   
   interface ApiResponse{
     name:string;
@@ -32,7 +30,7 @@ githubSearch(){
     following: number;
   } 
   let promise =new Promise((resolve,reject)=>{
-    this.http.get<ApiResponse>(this.url).toPromise().then(response=>{
+    this.http.get<ApiResponse>(`https://api.github.com/users/${searchValue}?access_token=${environment.access_token}`).toPromise().then(response=>{
         
         this.user.name=response.name;
         this.user.avatar_url=response.avatar_url;
@@ -53,4 +51,5 @@ githubSearch(){
 
 return promise
 }
+
 }
