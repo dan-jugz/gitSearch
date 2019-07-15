@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(private searchService:SearchService) { }
 
   _user:User;
+  searchUsers:string='';
 
 
 
@@ -20,7 +21,7 @@ export class ProfileComponent implements OnInit {
   }
   
   submitSearch(search){
-    this.searchService.githubSearch(search.value);
+    this.searchService.githubSearch(this.searchUsers);
     this._user=this.searchService.user;
 console.log(search.value);
   }

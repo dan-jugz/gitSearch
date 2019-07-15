@@ -46,7 +46,7 @@ githubSearch(searchValue){
     )
 })
 
-return promise
+return promise;
 }
 
 }

@@ -1,3 +1,7 @@
 body{
-    background-image: url("./assets//git.jpg");
+    background-image: url("./assets//Git.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

@@ -1,16 +1,15 @@
-<div class="topnav">
-    <a href="#Home" class="active">Home</a>
-    <a href="https://github.com/dan-jugz?tab=repositories"></a>
-</div>
+
 <div class="container">
         <div class="row">
-          <div class="col-9"><form #search="ngForm" (ngSubmit)="submitSearch(search)">
+          <div class="col-9">
+              <form #search="ngForm" (ngSubmit)="submitSearch(search)">
                 <div class="form-group">
                     <label for="github"></label>
-                    <input type="text" name="searchUser" [(ngModel)]="searchUsers" #githubUser [(ngModel)]="github" placeholder="Search" id="search">
+                    <input type="text" name="searchUser" [(ngModel)]="searchUsers" #githubUser placeholder="Search" id="search">
                     <button type="submit" class="btn btn-sm btn-info">Search user</button>
                 </div>
-            </form></div>
+            </form>
+        </div>
           <div *ngIf="_user" class="col-4"><h2>
                 Username;
                 {{_user.name}}
@@ -20,9 +19,11 @@
             <span class="badge badge-secondary">{{_user.public_repos}}</span>
                 
                 
-            <br><span class="badge badge-pill badge-success">Followers;</span><span class="badge badge-secondary">{{_user.followers}}</span>
-            <h2><span class="badge badge-pill badge-success">Following;</span> <span class="badge badge-secondary">{{_user.following}}</span></h2></div>
+            <h5><br><span class="badge badge-pill badge-success">Followers;</span><span class="badge badge-secondary">{{_user.followers}}</span></h5>
+            <h5><span class="badge badge-pill badge-success">Following;</span> <span class="badge badge-secondary">{{_user.following}}</span></h5>
+            <h4><span class="badge badge-pill badge-success">View online <a href="{{_user.repos_url}}">Repositories</a>;</span> </h4>
+        </div>
         </div>
       </div>
 
-      <span class="badge badge-pill badge-success">View online <a href="{{_user.repos_url}}">Repositories</a>;</span> 
+      
