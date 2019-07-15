@@ -20,7 +20,7 @@ githubSearch(searchValue){
   interface ApiResponse{
     name:string;
     avatar_url:string;
-    repos_url:string;
+    html_url:string;
     public_repos:number;
     gists: number;
     followers:number;
@@ -31,7 +31,7 @@ githubSearch(searchValue){
         
         this.user.name=response.name;
         this.user.avatar_url=response.avatar_url;
-        this.user.repos_url=response.repos_url;
+        this.user.html_url=response.html_url;
         this.user.public_repos=response.public_repos;
         this.user.gists=response.gists;
         this.user.followers=response.followers;

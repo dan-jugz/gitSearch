@@ -1,29 +1,30 @@
-
 <div class="container">
-        <div class="row">
-          <div class="col-9">
-              <form #search="ngForm" (ngSubmit)="submitSearch(search)">
-                <div class="form-group">
-                    <label for="github"></label>
-                    <input type="text" name="searchUser" [(ngModel)]="searchUsers" #githubUser placeholder="Search" id="search">
-                    <button type="submit" class="btn btn-sm btn-info">Search user</button>
-                </div>
-            </form>
+  <div class="row">
+    <div class="col-9">
+      <form #search="ngForm" (ngSubmit)="submitSearch(search)">
+        <div class="form-group">
+          <label for="github"></label>
+          <input type="text" name="searchUser" [(ngModel)]="searchUsers" #githubUser placeholder="Search" id="search">
+          <button type="submit" class="btn btn-sm btn-info">Search user</button>
         </div>
-          <div *ngIf="_user" class="col-4"><h2>
-                Username;
-                {{_user.name}}
-            </h2><br><img src="{{_user.avatar_url}}" alt="user image"> </div>
-          <div class="col-6">
-            <span class="badge badge-pill badge-success">Repositories;</span>
-            <span class="badge badge-secondary">{{_user.public_repos}}</span>
-                
-                
-            <h5><br><span class="badge badge-pill badge-success">Followers;</span><span class="badge badge-secondary">{{_user.followers}}</span></h5>
-            <h5><span class="badge badge-pill badge-success">Following;</span> <span class="badge badge-secondary">{{_user.following}}</span></h5>
-            <h4><span class="badge badge-pill badge-success">View online <a href="{{_user.repos_url}}">Repositories</a>;</span> </h4>
-        </div>
-        </div>
-      </div>
-
+      </form>
+    </div>
+    <div *ngIf="_user" class="col-4"><br><img src="{{_user.avatar_url}}" alt="user image">
+     
+    </div>
+    <div class="col-6">
+      <h2><br><span class="badge badge-pill badge-success">{{_user.name}}</span></h2>
       
+      <span class="badge badge-secondary">{{_user.public_repos}}</span>
+      <span class="badge badge-pill badge-success">Repositories;</span>
+
+
+      <h5><br><span class="badge badge-pill badge-primary">Followers;</span>
+        <span class="badge badge-primary">{{_user.followers}}</span></h5>
+      <h5><span class="badge badge-pill badge-primary">Following;</span> 
+        <span class="badge badge-primary">{{_user.following}}</span></h5>
+      <h4><span class="badge badge-pill badge-primary">View online <br> <a href="{{_user.html_url}}">Repositories</a>;</span>
+      </h4>
+    </div>
+  </div>
+</div>
