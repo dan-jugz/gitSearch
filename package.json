@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.0.3",
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
+    "@types/mocha": "^5.2.7",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",

@@ -15,9 +15,6 @@ user:User;
   this.user=new User("","","",0,0,0,0) 
   }
 
-  // let promise =  new promise ((resolve,reject)=>{this.httpClient.get<response>("https://api.github.com/users/yourname"${querySite}?+ this.username +"/repos"+environment.apiKey).toPromise(then(response=>{this.reponame.repos=response}
-  //   console.log(Response)))})
-
 githubSearch(searchValue){
   
   interface ApiResponse{
