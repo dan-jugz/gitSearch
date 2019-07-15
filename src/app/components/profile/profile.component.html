@@ -13,18 +13,19 @@
      
     </div>
     <div class="col-6">
-      <h2><br><span class="badge badge-pill badge-success">{{_user.name}}</span></h2>
-      
-      <span class="badge badge-secondary">{{_user.public_repos}}</span>
-      <span class="badge badge-pill badge-success">Repositories;</span>
-
-
-      <h5><br><span class="badge badge-pill badge-primary">Followers;</span>
-        <span class="badge badge-primary">{{_user.followers}}</span></h5>
-      <h5><span class="badge badge-pill badge-primary">Following;</span> 
-        <span class="badge badge-primary">{{_user.following}}</span></h5>
-      <h4><span class="badge badge-pill badge-primary">View online <br> <a href="{{_user.html_url}}">Repositories</a>;</span>
-      </h4>
+        <div class="card card-body">
+            <ul class="list-group">
+                <li class="list-group-item"><span class="badge badge-pill badge-success">{{_user.name}}</span></li>
+                <li class="list-group-item"><span class="badge badge-secondary">Repositories;{{_user.public_repos}}</span></li>
+                <li class="list-group-item"><span class="badge badge-primary">Followers;{{_user.followers}}</span></li>
+                <li class="list-group-item"><span class="badge badge-primary">following{{_user.following}}</span></li>
+                <li class="list-group-item"><span class="badge badge-pill badge-dark">View online <br>
+                 <a href="{{_user.html_url}}" target="_blank">Repositories</a>;</span></li>
+            </ul>
+            
+            
+        </div>
+     
     </div>
   </div>
 </div>
