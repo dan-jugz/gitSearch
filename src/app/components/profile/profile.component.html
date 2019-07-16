@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
+    <div class="col-md-12">
       <form #search="ngForm" (ngSubmit)="submitSearch(search)">
         <div class="form-group">
           <label for="github"></label>
@@ -12,7 +12,7 @@
     <div *ngIf="_user" class="col-md-4 col-sm-12"><br><img src="{{_user.avatar_url}}" alt="user image" style="width:400px;height:350px">
       <div class="card card-body">
       <ul class="list-group">
-        <li class="list-group-item"><span class="badge badge-pill badge-success">{{_user.name}}</span></li>
+        <li class="list-group-item"><span class="badge badge-pill badge-success">{{_user.name|uppercase}}</span></li>
         <li class="list-group-item"><span class="badge badge-secondary">Repositories;{{_user.public_repos}}</span></li>
         <li class="list-group-item"><span class="badge badge-primary">Followers;{{_user.followers}}</span></li>
         <li class="list-group-item"><span class="badge badge-primary">Following;{{_user.following}}</span></li>
@@ -23,7 +23,7 @@
   </div>
     <div *ngFor="let repo of _repos" class="col-md-6 col-sm-12">
             
-        {{repo.name}}
+        {{repo.name|uppercase}}
             
        
     
