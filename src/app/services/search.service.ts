@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/user';
-
+import{ RepoUser } from 'src/app/repo-user';
 
 
 @Injectable({
@@ -10,8 +10,12 @@ import { User } from 'src/app/user';
 })
 export class SearchService {
 user:User;
+_newFetchedRepo:RepoUser;
+_repoData=[];
+
 
   constructor(private http:HttpClient) { 
+  this._newFetchedRepo=new RepoUser("","","",new Date(),"")
   this.user=new User("","","",0,0,0,0) 
   }
 
@@ -43,8 +47,26 @@ githubSearch(searchValue){
            
             reject(error)
         }
-    )
+    ),
+    this.http.get<any>(`https://api.github.com/users/${searchValue}/repos?access_token=${environment.access_token}`).toPromise().then(response => {
+
+      for (let i = 0; i < response.length; i++) {
+
+        this._newFetchedRepo = new RepoUser(response[i].name, response[i].full_name, response[i].description,
+          response[i].updated_at, response[i].html_url);
+        this._repoData.push(this._newFetchedRepo)
+
+      }
+
+      resolve()
+
+    }, error => {
+      reject(error)
+    })
+
 })
+
+
 
 return promise;
 }
