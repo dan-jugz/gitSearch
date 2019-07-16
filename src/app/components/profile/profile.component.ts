@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
 
   _user:User;
   searchUsers:string='';
- _repoData:any[]
+ _repos:any[]
 
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   
   submitSearch(search){
     this.searchService.githubSearch(this.searchUsers);
-    this._repoData=this.searchService._repoData
+    this._repos=this.searchService._repoData
     this._user=this.searchService.user;
 console.log(search.value);
   }
